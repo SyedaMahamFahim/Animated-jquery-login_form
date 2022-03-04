@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container main-form">
+        <header>Your Logo Here</header>
+        <form id="form">
+            <div class="form-control">
+                <div class="input-field">
+                    <span class="requireds">*</span>
+                    <label>Enter Blah</label>
+                    <input type="text" id="first_input" required>
+                    <!-- <small class="errors slide-right">Error message</small> -->
+                    <p id="first_input_error" class="errors slide-right">Please fill the input</p>
+                </div>
+                <div class="input-field">
+                    <span class="requireds">*</span>
+                    <label>Enter Blah</label>
+                    <input class="pswrd" type="password" id="second_input" required>
+                    <p id="second_input_error" class="errors slide-right">Please fill the input</p>
+
+                </div>
+                <div class="input-field">
+                    <span class="requireds">*</span>
+                    <label>Your Date of Birth</label> <br />
+                    <div class="date-of-birth">
+                        <div class="months">
+                            <select id="month" required onchange="birthDay()">
+                                <option value="">Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="days">
+                            <select id="day" required onchange="birthDay()">
+                                <option value="">Date</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+
+
+                        <div class="years">
+                            <input type="text" id="year" class="year-input" placeholder="Year" required
+                                onchange="birthDay()">
+                        </div>
+                        <br />
+
+
+
+                    </div>
+                    <p id="dateofbirth" class="errors slide-right">Please fill the input</p>
+
+                </div>
+
+                <div class="sundow">
+                    <input type="checkbox">
+                    <label>After Sundow</label>
+                </div>
+                <div class="button">
+                    <div class="inner"></div>
+                    <button class="submitBtn">Search</button>
+                </div>
+        </form>
+
+    </div>
+    </div>
+    <br />
+    <div class="container searching scale-up-top">
+        <header>Your Logo Here</header>
+        <div class="loading-btn">
+            <div class="loadin-btn-text">
+                <span class="text">Loading</span>
+            </div>
+        </div>
+
+    </div>
+    <script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+        var sunDown = document.querySelector('.sundow')
+        sunDown.style.visibility = "hidden"
+        const loadingBtn = document.querySelector(".loading-btn");
+        const loadingBtnText = document.querySelector(".loading-btn-text");
+
+
+        function birthDay() {
+            var changeMonth = document.querySelector('#month').value
+            var changeDay = document.querySelector('#day').value
+            var changeYear = document.querySelector('#year').value
+
+            if (changeMonth !== "" && changeDay !== "" && changeYear !== "") {
+                sunDown.style.visibility = "visible"
+            }
+        }
+
+        const form = document.getElementById('form')
+        const firstInput = document.getElementById('first_input');
+        const secondInput = document.getElementById('second_input');
+        const monthInput = document.getElementById('month');
+        const dayInput = document.getElementById('day');
+        const yearInput = document.getElementById('year');
+        const searching = document.querySelector('.searching');
+        const mainForm = document.querySelector('.main-form');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            checkInputs();
+
+            console.log("form submitted")
+        });
+
+        function checkInputs() {
+            // trim to remove the whitespaces
+            const firstInputValue = firstInput.value;
+            const secondInputValue = secondInput.value;
+            const monthInputValue = monthInput.value;
+            const dayInputValue = dayInput.value;
+            const yearInputValue = yearInput.value;
+
+            if (firstInputValue === '') {
+                setErrorFor(firstInput, 'Please fill the input');
+            }
+            if (secondInputValue === '') {
+                setErrorFor(secondInput, 'Please fill the input');
+            }
+            if (monthInputValue === '') {
+                setErrorFor(monthInput, 'Please fill the input');
+            }
+
+            if (dayInputValue === '') {
+                setErrorFor(dayInput, 'Password2 cannot be blank');
+            }
+
+            if (yearInputValue === '') {
+                setErrorFor(yearInput, 'Password2 cannot be blank');
+            }
+
+            if (firstInputValue !== '' && secondInputValue !== '' && monthInputValue !== '' && dayInputValue !== '' && yearInputValue !== '') {
+                mainForm.style.display = "none"
+                searching.style.display = "block"
+
+                loadingBtn.classList.add("progress");
+                loadingBtnText.innerText = "Uploading...";
+
+                setTimeout(() => {
+                    loadingBtn.classList.remove("progress"); //remove progress after 6s
+                    loadingBtnText.innerText = "Uploaded";
+                }, 6000); //1000ms = 1s (6000 = 6s)
+
+            }
+        }
+
+        function setErrorFor(input, message) {
+            const errorMessage = document.getElementsByClassName('errors')
+            errorMessag.innerText = message;
+            errorMessag.style.display = "block"
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
