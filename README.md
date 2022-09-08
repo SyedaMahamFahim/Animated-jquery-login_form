@@ -13,7 +13,7 @@ https://animated-jquery-login-form.netlify.app/
 ## Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/SyedaMahamFahim/Animated-jquery-multi-step_form
 ```
 
 
