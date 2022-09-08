@@ -1,7 +1,7 @@
 
-# Animated Jquery Login Form
+# Animated Jquery Multi-Step Form
 
-This is the simple animated login form. 
+This is the simple animated multistep form. 
 
 
 
