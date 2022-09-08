@@ -9,7 +9,7 @@ This is the simple animated multistep form.
 
 link to demo
 
-https://animated-jquery-login-form.netlify.app/
+https://animated-jquery-multi-step-form.netlify.app/
 ## Clone the project
 
 ```bash
